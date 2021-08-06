@@ -126,7 +126,7 @@ public class ArcProgress extends View {
         paint.setAntiAlias(true);
         paint.setStrokeWidth(strokeWidth);
         paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeCap(Paint.Cap.ROUND);
+//        paint.setStrokeCap(Paint.Cap.ROUND);
     }
 
     @Override
