@@ -126,7 +126,7 @@ public class ArcProgress extends View {
         paint.setAntiAlias(true);
         paint.setStrokeWidth(strokeWidth);
         paint.setStyle(Paint.Style.STROKE);
-//        paint.setStrokeCap(Paint.Cap.ROUND);
+        paint.setStrokeCap(Paint.Cap.ROUND);
     }
 
     @Override
@@ -167,17 +167,22 @@ public class ArcProgress extends View {
     }
 
     public void setProgress(float progress) {
+        setProgress(progress, true);
+    }
+
+    public void setProgress(float progress, boolean animate) {
         this.progress = Float.valueOf(new DecimalFormat("#.##").format(progress));
 
         if (this.progress > getMax()) {
             this.progress %= getMax();
         }
-        currentProgress = 0;
+        if (animate) {
+            currentProgress = 0;
+        } else {
+            currentProgress = (int) progress;
+        }
         invalidate();
     }
-
-
-
 
     public int getMax() {
         return max;
